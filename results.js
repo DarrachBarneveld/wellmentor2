@@ -195,7 +195,7 @@ function askgpt() {
       loaderText.classList.add("hidden");
 
       const container = document.getElementById("gpt");
-      GTPCAT.innerText = `You need help in ${LOWESTCAT}`;
+      GTPCAT.innerText = `You need help in ${LOWESTCAT} Health`;
       container.innerText = replyText;
 
       console.log("hi");
