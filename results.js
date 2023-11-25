@@ -40,7 +40,14 @@ const height = 110;
 const width = 100;
 const barWidth = 100;
 const barOffset = 10;
-const barColor = ["#CD2A51", ""];
+const barColor = [
+  "#CD2A51",
+  "#4670f3",
+  "#d9b988",
+  "#f5c041",
+  "#865527",
+  "	#008000",
+];
 const barBackground = "#FAC041";
 
 async function init() {
