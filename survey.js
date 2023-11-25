@@ -35,6 +35,7 @@ async function nextQuestion(data, index) {
     }
     display.innerHTML = "";
     checkResultsBtn.classList.remove("hidden");
+    return;
   }
 
   questionText.innerHTML = `<h2>${data[index].question}</h2>`;

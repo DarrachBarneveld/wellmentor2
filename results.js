@@ -6,8 +6,6 @@ if (score) {
   console.log("No object found in local storage.");
 }
 
-console.log(score);
-
 const DUMMY_DATA = [
   { section: "Physical", value: score.physical, icon: "fa-solid fa-dumbbell" },
   {
