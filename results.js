@@ -1,5 +1,7 @@
 import { collection, getDocs } from "@firebase/firestore";
 import { firebaseDB } from "./config/firebase";
+const OpenAI = require("openai");
+let openai;
 
 let SCORE = localStorage.getItem("score");
 
@@ -53,15 +55,32 @@ const barBackground = "#FAC041";
 async function init() {
   const { key } = await getGPTKey();
 
-  console.log(key);
+  openai = new OpenAI({
+    apiKey: key,
+    dangerouslyAllowBrowser: true,
+  });
   apiKey = key;
 
-  testfetch();
+  askgpt();
   // openai = new OpenAI({
   //   apiKey: key,
   //   dangerouslyAllowBrowser: true,
   // });
 }
+
+// const askgpt = async () => {
+//   let outputArea = document.getElementById("gpt");
+
+//   console.log("fire");
+//   const chatCompletion = await openai.chat.completions
+//     .create({
+//       model: "gpt-3.5-turbo",
+//       messages: [{ role: "user", content: QUESTION }],
+//     })
+//     .then((res) => (outputArea.value = res.choices[0].message.content));
+
+//   console.log(chatCompletion);
+// };
 
 export async function getGPTKey() {
   try {
@@ -120,11 +139,11 @@ if (!isObjectEmpty(SCORE)) {
   });
 }
 
-const question = `I have filled in the survey about my health. The scores are marked from 0-100. Here are my results: Physical: ${SCORE.physical} , depression: ${SCORE.depression}, relationships: ${SCORE.relationships}, mental: ${SCORE.mental}, profesional: ${SCORE.professional}, anxiety: ${SCORE.anxiety}. What would you reccomend me to do today to improve my life? Also what would you reccoment me to do for the rest of the week? Any other advice?`;
+const QUESTION = `I have filled in the survey about my health. The scores are marked from 0-100. Here are my results: Physical: ${SCORE.physical} , depression: ${SCORE.depression}, relationships: ${SCORE.relationships}, mental: ${SCORE.mental}, profesional: ${SCORE.professional}, anxiety: ${SCORE.anxiety}. What would you reccomend me to do today to improve my life? Also what would you reccoment me to do for the rest of the week? Any other advice?`;
 const testQuestion = "How can I improve my health?";
 const physicalQuestion = `I have scored ${SCORE.physical} out of a 100 in a survey that checks my physical health status, what woudl you advise me to do to improve my score?`;
 
-function testfetch() {
+function askgpt() {
   fetch("https://api.openai.com/v1/chat/completions", {
     method: "POST",
     headers: {
@@ -150,9 +169,10 @@ function testfetch() {
           ? assistantReply.text
           : assistantReply;
       console.log("Assistant Reply:", replyText);
-      const container = document.createElement("div");
+      const container = document.getElementById("gpt");
       container.innerText = replyText;
-      document.body.appendChild(container);
+
+      console.log("hi");
     })
     .catch((error) => console.error("Error fetching data:", error));
 }
