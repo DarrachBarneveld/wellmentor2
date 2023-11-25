@@ -50,7 +50,7 @@ const barColor = [
   "#865527",
   "	#008000",
 ];
-const barBackground = "#FAC041";
+const barBackground = "whitesmoke";
 
 async function init() {
   const { key } = await getGPTKey();
