@@ -1,0 +1,174 @@
+[
+  {
+    "question": "How often do you feel little interest or pleasure in doing things?",
+    "answers": [
+      "never",
+      "sometimes",
+      "a few days a week",
+      "most days",
+      "nearly every day"
+    ],
+    "question_group": "depression"
+  },
+  {
+    "question": "How often do you feel down, depressed or hopeless?",
+    "answers": [
+      "never",
+      "sometimes",
+      "a few days a week",
+      "most days",
+      "nearly every day"
+    ],
+    "question_group": "depression"
+  },
+  {
+    "question": "How often do you sleep too little or too much, or have trouble falling or staying asleep?",
+    "answers": [
+      "never",
+      "sometimes",
+      "a few days a week",
+      "most days",
+      "nearly every day"
+    ],
+    "question_group": "depression"
+  },
+  {
+    "question": "How often are you affected by feeling tired or having little energy?",
+    "answers": [
+      "never",
+      "sometimes",
+      "a few days a week",
+      "most days",
+      "nearly every day"
+    ],
+    "question_group": "depression"
+  },
+  {
+    "question": "How often do you feel bad about yourself?",
+    "answers": [
+      "never",
+      "sometimes",
+      "a few days a week",
+      "most days",
+      "nearly every day"
+    ],
+    "question_group": "depression"
+  },
+  {
+    "question": "How often do you feel nervous, anxious or on edge?",
+    "answers": [
+      "never",
+      "sometimes",
+      "a few days a week",
+      "most days",
+      "nearly every day"
+    ],
+    "question_group": "anxiety"
+  },
+  {
+    "question": "How often do you feel like you are not able to stop worrying?",
+    "answers": [
+      "never",
+      "sometimes",
+      "a few days a week",
+      "most days",
+      "nearly every day"
+    ],
+    "question_group": "anxiety"
+  },
+  {
+    "question": "How often do you feel so restless that is hard to sit still?",
+    "answers": [
+      "never",
+      "sometimes",
+      "a few days a week",
+      "most days",
+      "nearly every day"
+    ],
+    "question_group": "anxiety"
+  },
+  {
+    "question": "How often do you feel affraid as if something awful might happen?",
+    "answers": [
+      "never",
+      "sometimes",
+      "a few days a week",
+      "most days",
+      "nearly every day"
+    ],
+    "question_group": "anxiety"
+  },
+  {
+    "question": "How often do you have trouble relaxing?",
+    "answers": [
+      "never",
+      "sometimes",
+      "a few days a week",
+      "most days",
+      "nearly every day"
+    ],
+    "question_group": "anxiety"
+  },
+  {
+    "question": "How would you rate your current stress level on a scale of 1 to 5?",
+    "answers": ["1", "2", "3", "4", "5"],
+    "question_group": "stress"
+  },
+  {
+    "question": "How often do you feel overwhelmed or stressed in a typical week, and how intense are those feelings?",
+    "answers": [
+      "never",
+      "sometimes",
+      "a few days a week",
+      "most days",
+      "nearly every day"
+    ],
+    "question_group": "stress"
+  },
+  {
+    "question": "How would you describe the overall quality of your relationships (family, friends, romantic)?",
+    "answers": ["poor", "fair", "good", "very good", "excelent"],
+    "question_group": "relationships"
+  },
+  {
+    "question": "During challenging times, how often do you discuss your issues with others?",
+    "answers": ["never", "sometimes", "always"],
+    "question_group": "relationships"
+  },
+  {
+    "question": "How satisfied are you with your current social support network?",
+    "answers": [
+      "not at all",
+      "slightly satisfied",
+      "moderately satisfied",
+      "very satisfied",
+      "extremely satisfied"
+    ],
+    "question_group": "relationships"
+  },
+  {
+    "question": "How would you describe the overall quality of your relationships (family, friends, romantic)?",
+    "answers": ["poor", "fair", "good", "very_good", "excelent"],
+    "question_group": "relationships"
+  },
+  {
+    "question": "How confortable are you in discussing mental health?",
+    "answers": [
+      "very unconfortable",
+      "slightly unconfortable",
+      "slightly confortable",
+      "extremely confortable"
+    ],
+    "question_group": "mental"
+  },
+  {
+    "question": "How would you rate your current level of awareness about mental health issues?",
+    "answers": ["low", "moderate", "high"],
+    "question_group": "mental"
+  },
+  {
+    "question": "Have you sought professional help for mental health in the past year or participated in mental health campaings or events ?",
+    "answers": ["no", "yes"],
+    "question_group": "mental"
+  }
+]

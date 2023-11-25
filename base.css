@@ -1,0 +1,64 @@
+/* GLOBAL STYLES FOR APP */
+
+:root {
+  --box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  --clr-green: #22c55e;
+  --clr-red: #b91c1c;
+  --clr-blue: #2563eb;
+  --clr-yellow: #fde047;
+}
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: lightblue;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100dvh;
+}
+
+/* FOOTER */
+footer {
+  background-color: #865527;
+  padding: 60px 0;
+  margin-top: 20px;
+}
+
+footer p,
+a {
+  color: #fac041;
+}
+
+.footer-box {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-menu li {
+  list-style-type: none;
+  display: inline-block;
+  margin-right: 16px;
+}
+
+.social-icons i {
+  color: var(--secondary-color);
+  font-size: 16px;
+  border: 1px solid var(--secondary-color);
+  border-radius: 50%;
+  padding: 8px;
+}

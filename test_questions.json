@@ -1,0 +1,62 @@
+[
+  {
+    "question": "How often do you feel little interest or pleasure in doing things?",
+    "answers": [
+      "never",
+      "sometimes",
+      "a few days a week",
+      "most days",
+      "nearly every day"
+    ],
+    "category": "depression"
+  },
+  {
+    "question": "How often do you exercise?",
+    "answers": [
+      "nearly every day",
+      "most days",
+      "a few days a week",
+      "sometimes",
+      "never"
+    ],
+    "category": "physical"
+  },
+  {
+    "question": "How many friends can you rely on for support when facing challenges?",
+    "answers": ["All", "Many", "Some", "Few", "None"],
+    "category": "relationships"
+  },
+  {
+    "question": "How confortable are you in discussing mental health?",
+    "answers": [
+      "extremely confortable",
+      "slightly confortable",
+      "neutral",
+      "slightly unconfortable",
+      "very unconfortable"
+    ],
+    "category": "mental"
+  },
+  {
+    "question": "How often do you manage work stress to maintain a healthy balance?",
+    "answers": [
+      "nearly every day",
+      "most days",
+      "a few days a week",
+      "sometimes",
+      "never"
+    ],
+    "category": "professional"
+  },
+  {
+    "question": "How often do you have trouble relaxing?",
+    "answers": [
+      "never",
+      "sometimes",
+      "a few days a week",
+      "most days",
+      "nearly every day"
+    ],
+    "category": "anxiety"
+  }
+]
