@@ -11,9 +11,19 @@
   background: rgba(0, 0, 0, 0.7);
 }
 
+.hidden {
+  display: none;
+}
+
 #loaderText {
   color: white;
   font-size: 2rem;
+}
+
+#gpt {
+  font-size: 1.5rem;
+  color: white;
+  max-width: 300px;
 }
 
 h1.results {

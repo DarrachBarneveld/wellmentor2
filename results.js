@@ -157,10 +157,8 @@ function askgpt() {
     },
     body: JSON.stringify({
       model: "gpt-3.5-turbo",
-      messages: [
-        { role: "system", content: testQuestion },
-        // Add more messages as needed
-      ],
+      messages: [{ role: "system", content: testQuestion }],
+      max_tokens: 30,
       temperature: 0.2,
     }),
   })
