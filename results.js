@@ -1,32 +1,32 @@
-let score = localStorage.getItem("score");
+let SCORE = localStorage.getItem("score");
 
-if (score) {
-  score = JSON.parse(score);
+if (SCORE) {
+  SCORE = JSON.parse(SCORE);
 } else {
   console.log("No object found in local storage.");
 }
 
 const DUMMY_DATA = [
-  { section: "Physical", value: score.physical, icon: "fa-solid fa-dumbbell" },
+  { section: "Physical", value: SCORE.physical, icon: "fa-solid fa-dumbbell" },
   {
     section: "Depression",
-    value: score.depression,
+    value: SCORE.depression,
     icon: "fa-solid fa-cloud-rain",
   },
   {
     section: "Relationships",
-    value: score.relationships,
+    value: SCORE.relationships,
     icon: "fa-solid fa-user-group",
   },
-  { section: "Mental", value: score.mental, icon: "fa-solid fa-brain" },
+  { section: "Mental", value: SCORE.mental, icon: "fa-solid fa-brain" },
   {
     section: "Anxiety",
-    value: score.anxiety,
+    value: SCORE.anxiety,
     icon: "fa-solid fa-bolt-lightning",
   },
   {
     section: "Professional",
-    value: score.professional,
+    value: SCORE.professional,
     icon: "fa-solid fa-user-tie",
   },
 ];
@@ -42,7 +42,7 @@ function isObjectEmpty(obj) {
   return Object.keys(obj).length === 0 && obj.constructor === Object;
 }
 
-if (!isObjectEmpty(score)) {
+if (!isObjectEmpty(SCORE)) {
   DUMMY_DATA.forEach((item) => {
     const col = document.createElement("div");
     col.classList.add("col-md-4", "col-6");
@@ -75,3 +75,44 @@ if (!isObjectEmpty(score)) {
       .attr("y", (d) => height - d);
   });
 }
+
+const apiKey = "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";
+
+const question = `I have filled in the survey about my health. The scores are marked from 0-100. Here are my results: Physical: ${SCORE.physical} , depression: ${SCORE.depression}, relationships: ${SCORE.relationships}, mental: ${SCORE.mental}, profesional: ${SCORE.professional}, anxiety: ${SCORE.anxiety}. What would you reccomend me to do today to improve my life? Also what would you reccoment me to do for the rest of the week? Any other advice?`;
+const testQuestion = "How can I improve my health?";
+const physicalQuestion = `I have scored ${SCORE.physical} out of a 100 in a survey that checks my physical health status, what woudl you advise me to do to improve my score?`;
+
+function testfetch() {
+  fetch("https://api.openai.com/v1/chat/completions", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${apiKey}`,
+    },
+    body: JSON.stringify({
+      model: "gpt-3.5-turbo",
+      messages: [
+        { role: "system", content: testQuestion },
+        // Add more messages as needed
+      ],
+      temperature: 0.2,
+    }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("Data from API:", data);
+      // Access the assistant's reply
+      const assistantReply = data.choices[0].message.content;
+      const replyText =
+        typeof assistantReply === "object"
+          ? assistantReply.text
+          : assistantReply;
+      console.log("Assistant Reply:", replyText);
+      const container = document.createElement("div");
+      container.innerText = replyText;
+      document.body.appendChild(container);
+    })
+    .catch((error) => console.error("Error fetching data:", error));
+}
+
+testfetch();
