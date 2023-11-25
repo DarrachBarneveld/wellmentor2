@@ -35,7 +35,7 @@ const height = 110;
 const width = 100;
 const barWidth = 100;
 const barOffset = 10;
-const barColor = "#CD2A51";
+const barColor = ["#CD2A51", ""];
 const barBackground = "#FAC041";
 
 function isObjectEmpty(obj) {
@@ -43,7 +43,7 @@ function isObjectEmpty(obj) {
 }
 
 if (!isObjectEmpty(SCORE)) {
-  DUMMY_DATA.forEach((item) => {
+  DUMMY_DATA.forEach((item, index) => {
     const col = document.createElement("div");
     col.classList.add("col-md-4", "col-6");
     const resultCard = document.createElement("div");
@@ -67,7 +67,7 @@ if (!isObjectEmpty(SCORE)) {
       .data([item.value])
       .enter()
       .append("rect")
-      .style("fill", barColor)
+      .style("fill", barColor[index])
       .attr("width", barWidth)
       .attr("rx", 3)
       .attr("height", (d) => d)
