@@ -1,5 +1,5 @@
 // DUMMY CODE FOR SURVEY
-import data from "./questions.json";
+import data from "./test_questions.json";
 const DATA = data;
 
 const questionText = document.getElementById("question");
@@ -7,7 +7,6 @@ const answersText = document.getElementById("answers");
 const answersBtns = answersText.querySelectorAll(".btn");
 const display = document.getElementById("display");
 const score = document.querySelector("score");
-const form = document.getElementById("form");
 const checkResultsBtn = document.getElementById("check-results");
 
 let TOTALINDEX = 0;
@@ -26,15 +25,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
 async function nextQuestion(data, index) {
   if (data.length <= index) {
-    document.getElementById("id_physical").value = SCORE.physical;
-    document.getElementById("id_depression").value = SCORE.depression;
-    document.getElementById("id_relationship").value = SCORE.relationships;
-    document.getElementById("id_professional").value = SCORE.professional;
-    document.getElementById("id_mental").value = SCORE.mental;
-    document.getElementById("id_anxiety").value = SCORE.anxiety;
+    const jsonString = JSON.stringify(SCORE);
+    if (localStorage.getItem("score")) {
+      // If it exists, overwrite it
+      localStorage.setItem("score", jsonString);
+    } else {
+      // If it doesn't exist, create a new entry
+      localStorage.setItem("score", jsonString);
+    }
     display.innerHTML = "";
     checkResultsBtn.classList.remove("hidden");
-    return;
   }
 
   questionText.innerHTML = `<h2>${data[index].question}</h2>`;
@@ -70,5 +70,3 @@ function storeAnswer(e, category) {
 answersBtns.forEach((button) => {
   button.addEventListener("click", (e) => storeAnswer(e));
 });
-
-checkResultsBtn.addEventListener("click", () => form.submit());

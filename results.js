@@ -1,20 +1,12 @@
-// TEMPORARY CODE FOR PUSHING SCORE STATE ONTO RESULTS PAGE
+let score = localStorage.getItem("score");
 
-// document.addEventListener("DOMContentLoaded", () => {
-//   const physicalElement = document.getElementById("physical");
-//   const depressionElement = document.getElementById("depression");
-//   const relationshipsElement = document.getElementById("relationships");
-//   const mentalElement = document.getElementById("mental");
-//   const anxietyElement = document.getElementById("anxiety");
-//   const professionalElement = document.getElementById("professional");
+if (score) {
+  score = JSON.parse(score);
+} else {
+  console.log("No object found in local storage.");
+}
 
-//   physicalElement.innerText = score.physical;
-//   depressionElement.innerText = score.depression;
-//   relationshipsElement.innerText = score.relationships;
-//   mentalElement.innerText = score.mental;
-//   anxietyElement.innerText = score.anxiety;
-//   professionalElement.innerText = score.professional;
-// });
+console.log(score);
 
 const DUMMY_DATA = [
   { section: "Physical", value: score.physical, icon: "fa-solid fa-dumbbell" },
@@ -25,7 +17,7 @@ const DUMMY_DATA = [
   },
   {
     section: "Relationships",
-    value: score.relationship,
+    value: score.relationships,
     icon: "fa-solid fa-user-group",
   },
   { section: "Mental", value: score.mental, icon: "fa-solid fa-brain" },
