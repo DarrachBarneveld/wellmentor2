@@ -8,7 +8,12 @@
   background: lightgray;
   height: 100vh;
   flex-direction: column;
-  background-color: lightblue;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+#loaderText {
+  color: white;
+  font-size: 2rem;
 }
 
 h1.results {

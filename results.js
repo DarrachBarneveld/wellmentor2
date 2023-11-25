@@ -10,6 +10,8 @@ if (SCORE) {
 } else {
   console.log("No object found in local storage.");
 }
+const loader = document.getElementById("loader");
+const loaderText = document.getElementById("loaderText");
 
 let apiKey = "";
 
@@ -144,6 +146,9 @@ const testQuestion = "How can I improve my health?";
 const physicalQuestion = `I have scored ${SCORE.physical} out of a 100 in a survey that checks my physical health status, what woudl you advise me to do to improve my score?`;
 
 function askgpt() {
+  loader.classList.remove("hidden");
+  loaderText.classList.remove("hidden");
+
   fetch("https://api.openai.com/v1/chat/completions", {
     method: "POST",
     headers: {
@@ -169,6 +174,9 @@ function askgpt() {
           ? assistantReply.text
           : assistantReply;
       console.log("Assistant Reply:", replyText);
+      loader.classList.add("hidden");
+      loaderText.classList.add("hidden");
+
       const container = document.getElementById("gpt");
       container.innerText = replyText;
 
