@@ -1,3 +1,6 @@
+import { collection, getDocs } from "@firebase/firestore";
+import { firebaseDB } from "./config/firebase";
+
 let SCORE = localStorage.getItem("score");
 
 if (SCORE) {
@@ -5,6 +8,8 @@ if (SCORE) {
 } else {
   console.log("No object found in local storage.");
 }
+
+let apiKey = "";
 
 const DUMMY_DATA = [
   { section: "Physical", value: SCORE.physical, icon: "fa-solid fa-dumbbell" },
@@ -37,6 +42,38 @@ const barWidth = 100;
 const barOffset = 10;
 const barColor = ["#CD2A51", ""];
 const barBackground = "#FAC041";
+
+async function init() {
+  const { key } = await getGPTKey();
+
+  console.log(key);
+  apiKey = key;
+
+  testfetch();
+  // openai = new OpenAI({
+  //   apiKey: key,
+  //   dangerouslyAllowBrowser: true,
+  // });
+}
+
+export async function getGPTKey() {
+  try {
+    const userCollectionRef = collection(firebaseDB, "api");
+    const querySnapshot = await getDocs(userCollectionRef);
+
+    const key = [];
+    querySnapshot.forEach((doc) => {
+      const data = doc.data();
+      key.push(data);
+    });
+
+    return key[0];
+  } catch (error) {
+    console.error("Error fetching documents: ", error);
+  }
+}
+
+init();
 
 function isObjectEmpty(obj) {
   return Object.keys(obj).length === 0 && obj.constructor === Object;
@@ -76,8 +113,6 @@ if (!isObjectEmpty(SCORE)) {
   });
 }
 
-const apiKey = "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";
-
 const question = `I have filled in the survey about my health. The scores are marked from 0-100. Here are my results: Physical: ${SCORE.physical} , depression: ${SCORE.depression}, relationships: ${SCORE.relationships}, mental: ${SCORE.mental}, profesional: ${SCORE.professional}, anxiety: ${SCORE.anxiety}. What would you reccomend me to do today to improve my life? Also what would you reccoment me to do for the rest of the week? Any other advice?`;
 const testQuestion = "How can I improve my health?";
 const physicalQuestion = `I have scored ${SCORE.physical} out of a 100 in a survey that checks my physical health status, what woudl you advise me to do to improve my score?`;
@@ -114,5 +149,3 @@ function testfetch() {
     })
     .catch((error) => console.error("Error fetching data:", error));
 }
-
-testfetch();
