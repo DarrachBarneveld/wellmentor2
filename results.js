@@ -4,6 +4,7 @@ const OpenAI = require("openai");
 let openai;
 
 let SCORE = localStorage.getItem("score");
+let LOWESTCAT = "";
 
 if (SCORE) {
   SCORE = JSON.parse(SCORE);
@@ -12,8 +13,27 @@ if (SCORE) {
 }
 const loader = document.getElementById("loader");
 const loaderText = document.getElementById("loaderText");
+const GTPCAT = document.getElementById("gpt-title");
 
 let apiKey = "";
+
+findLowestCategory(SCORE);
+function findLowestCategory(categories) {
+  let lowestCategory = null;
+  let lowestValue = Infinity;
+
+  for (const category in categories) {
+    if (categories.hasOwnProperty(category)) {
+      const value = categories[category];
+
+      if (value < lowestValue) {
+        lowestValue = value;
+        lowestCategory = category;
+      }
+    }
+  }
+  LOWESTCAT = lowestCategory;
+}
 
 const DUMMY_DATA = [
   { section: "Physical", value: SCORE.physical, icon: "fa-solid fa-dumbbell" },
@@ -141,9 +161,8 @@ if (!isObjectEmpty(SCORE)) {
   });
 }
 
-const QUESTION = `I have filled in the survey about my health. The scores are marked from 0-100. Here are my results: Physical: ${SCORE.physical} , depression: ${SCORE.depression}, relationships: ${SCORE.relationships}, mental: ${SCORE.mental}, profesional: ${SCORE.professional}, anxiety: ${SCORE.anxiety}. What would you reccomend me to do today to improve my life? Also what would you reccoment me to do for the rest of the week? Any other advice?`;
-const testQuestion = "How can I improve my health?";
-const physicalQuestion = `I have scored ${SCORE.physical} out of a 100 in a survey that checks my physical health status, what woudl you advise me to do to improve my score?`;
+const QUESTION = `User
+write short bulletpoints on how i can improve my mental health in relation to ${LOWESTCAT}`;
 
 function askgpt() {
   loader.classList.remove("hidden");
@@ -157,8 +176,8 @@ function askgpt() {
     },
     body: JSON.stringify({
       model: "gpt-3.5-turbo",
-      messages: [{ role: "system", content: testQuestion }],
-      max_tokens: 30,
+      messages: [{ role: "system", content: QUESTION }],
+      max_tokens: 60,
       temperature: 0.2,
     }),
   })
@@ -176,6 +195,7 @@ function askgpt() {
       loaderText.classList.add("hidden");
 
       const container = document.getElementById("gpt");
+      GTPCAT.innerText = `You need help in ${LOWESTCAT}`;
       container.innerText = replyText;
 
       console.log("hi");

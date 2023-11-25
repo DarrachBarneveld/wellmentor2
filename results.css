@@ -6,7 +6,7 @@
   gap: 10px;
   justify-content: center;
   background: lightgray;
-  height: 100vh;
+  min-height: 100vh;
   flex-direction: column;
   background: rgba(0, 0, 0, 0.7);
 }
@@ -23,7 +23,15 @@
 #gpt {
   font-size: 1.5rem;
   color: white;
-  max-width: 300px;
+  max-width: 600px;
+}
+
+#gpt-title {
+  font-size: 2rem;
+  text-transform: uppercase;
+  font-weight: bolder;
+  text-decoration: underline;
+  color: white;
 }
 
 h1.results {
@@ -31,7 +39,6 @@ h1.results {
   font-family: "Quicksand", sans-serif;
   font-weight: 600;
   text-decoration: underline;
-  margin-top: 8rem !important;
   margin-bottom: 3rem;
 }
 
