@@ -18,21 +18,28 @@ const GTPCAT = document.getElementById("gpt-title");
 let apiKey = "";
 
 findLowestCategory(SCORE);
+
 function findLowestCategory(categories) {
-  let lowestCategory = null;
-  let lowestValue = Infinity;
+  let highestCategory = null;
+  let highestValue = -Infinity;
 
   for (const category in categories) {
     if (categories.hasOwnProperty(category)) {
       const value = categories[category];
 
-      if (value < lowestValue) {
-        lowestValue = value;
-        lowestCategory = category;
+      if (
+        value > highestValue ||
+        (value === highestValue && highestCategory === null)
+      ) {
+        highestValue = value;
+        highestCategory = category;
       }
     }
   }
-  LOWESTCAT = lowestCategory;
+
+  console.log(highestCategory);
+
+  LOWESTCAT = highestCategory;
 }
 
 const DUMMY_DATA = [
