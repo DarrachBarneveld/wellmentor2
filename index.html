@@ -26,14 +26,16 @@
 
     <link rel="stylesheet" href="base.css" />
     <link rel="stylesheet" href="home.css" />
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
 
     <title>Home</title>
   </head>
   <body>
     <header>
       <nav class="navbar navbar-expand-lg">
-        <a class="navbar-brand" href="{% url 'home' %}">WellMentor</a>
+        <a class="navbar-brand" href="index.html"
+          ><img src="logo.png" alt=""
+        /></a>
         <button
           class="navbar-toggler"
           type="button"
@@ -45,7 +47,6 @@
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
@@ -55,29 +56,32 @@
               <a class="nav-link" href="aboutus.html">About us</a>
             </li>
           </ul>
-
-          <ul class="navbar-nav mb-2 mb-lg-0">
-            <li class="nav-item">
-              <p class="nav-link">Login</p>
-            </li>
-          </ul>
         </div>
       </nav>
     </header>
     <main>
       <section>
         <div class="px-4 py-5 my-5 text-center">
-                <div class="col-lg-6 mx-auto">
-                    <p class="lead mb-4" style="font-size: 40px; color: #fff; -webkit-text-stroke: 0.5px #1F70F3;">Strength in Every Step: Walk the Journey to Wellness</p>
-                </div>
-            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                <div id="survey-button">
-                    <a href="survey.html">Start the Survey!</a>
-                </div>
+          <div class="col-lg-6 mx-auto">
+            <p
+              class="lead mb-4"
+              style="
+                font-size: 40px;
+                font-weight: 600;
+                color: #fff;
+                -webkit-text-stroke: 1px #cd2a51;
+              "
+            >
+              Strength in Every Step: Walk the Journey to Wellness
+            </p>
+          </div>
+          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <div id="survey-button">
+              <a href="survey.html">Start the Survey!</a>
             </div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
     </main>
 
     <footer>
