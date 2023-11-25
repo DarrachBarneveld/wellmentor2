@@ -1,4 +1,16 @@
 /* GLOBAL STYLES FOR APP */
+main {
+  background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.1) 0%,
+      rgba(0, 0, 0, 0.5) 100%
+    ),
+    url("./hero.jpeg") rgba(40, 40, 40, 0.5) fixed;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
 
 :root {
   --box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -35,12 +47,20 @@ main {
 /* FOOTER */
 footer {
   background-color: #865527;
-  padding: 60px 0;
-  margin-top: 20px;
+  padding: 30px 0;
 }
 
 footer p,
 a {
+  color: #fac041;
+}
+
+footer p,
+a:hover {
+  color: #cd2a51;
+}
+
+.footer-box span {
   color: #fac041;
 }
 
@@ -68,7 +88,7 @@ header {
   padding: 10px;
 }
 .navbar-brand img {
-  width: 300px;
+  width: 200px;
 }
 .nav-link {
   color: #865527;
@@ -76,4 +96,8 @@ header {
 .nav-link:hover {
   color: #865527;
   font-weight: 600;
+}
+
+.navbar-toggler {
+  color: #865527;
 }
