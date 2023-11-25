@@ -1,15 +1,4 @@
-main {
-  background: linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0.1) 0%,
-      rgba(0, 0, 0, 0.5) 100%
-    ),
-    url("./hero.jpeg") rgba(40, 40, 40, 0.5) fixed;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-}
+
 .hero-box {
   color: #cd2a51;
   -webkit-text-stroke: 1.5px #fff;
