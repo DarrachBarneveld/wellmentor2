@@ -91,3 +91,15 @@
 .hidden {
   display: none;
 }
+
+#check-results {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: var(--clr-blue);
+  color: whitesmoke;
+  text-decoration: none;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
