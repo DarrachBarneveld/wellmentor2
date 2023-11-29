@@ -11,6 +11,7 @@ const firebaseConfig = {
   appId: "1:431766972649:web:9014dc62d4e9e6199ea878",
 };
 
+// Remove FB config from GIT
 export const app = initializeApp(firebaseConfig);
 export const firebaseAuth = getAuth(app);
 export const firebaseDB = getFirestore(app);
